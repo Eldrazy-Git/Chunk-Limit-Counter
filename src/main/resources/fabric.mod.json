@@ -1,0 +1,24 @@
+{
+	"schemaVersion": 1,
+	"id": "chunklimitcounter",
+	"version": "${version}",
+	"name": "Chunk Limit Counter",
+	"description": "Affiche en temps reel le nombre de blocs/entites limites par Insights dans le chunk courant.",
+	"authors": [
+		"eldrazyoutube"
+	],
+	"contact": {},
+	"license": "MIT",
+	"environment": "client",
+	"entrypoints": {
+		"client": [
+			"com.eldrazy.chunklimitcounter.ChunkLimitCounterClient"
+		]
+	},
+	"depends": {
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~26.2",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}

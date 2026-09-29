@@ -1,0 +1,23 @@
+{
+	"key.category.chunklimitcounter.main": "Chunk Limit Counter",
+	"key.chunklimitcounter.toggle_hud": "Afficher/masquer le HUD",
+	"key.chunklimitcounter.open_detail": "Ouvrir l'ecran de detail",
+	"key.chunklimitcounter.move_hud": "Deplacer le HUD",
+
+	"gui.chunklimitcounter.move_hud.title": "Deplacement du HUD",
+	"gui.chunklimitcounter.move_hud.hint": "Glissez la boite avec la souris, Echap pour sauvegarder et fermer",
+	"gui.chunklimitcounter.move_hud.opacity": "Opacite du fond : %s%%",
+
+	"gui.chunklimitcounter.detail.title": "Detail du chunk",
+	"gui.chunklimitcounter.detail.no_data": "Pas encore de donnees, deplacez-vous un peu",
+	"gui.chunklimitcounter.detail.empty": "(aucun dans ce chunk)",
+	"gui.chunklimitcounter.detail.others": "Autres blocs/block-entities presents dans ce chunk",
+	"gui.chunklimitcounter.detail.close_hint": "Echap pour fermer - molette pour defiler",
+	"gui.chunklimitcounter.detail.export": "Exporter en JSON",
+	"gui.chunklimitcounter.detail.screenshot": "Capture d'ecran",
+	"gui.chunklimitcounter.detail.export_no_data": "Aucune donnee a exporter",
+	"gui.chunklimitcounter.detail.export_success": "Exporte : %s",
+	"gui.chunklimitcounter.detail.export_failure": "Echec de l'export (voir les logs)",
+
+	"gui.chunklimitcounter.hud.title": "Chunk Limits"
+}
