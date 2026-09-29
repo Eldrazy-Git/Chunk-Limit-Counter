@@ -19,5 +19,7 @@
 	"gui.chunklimitcounter.detail.export_success": "Exporte : %s",
 	"gui.chunklimitcounter.detail.export_failure": "Echec de l'export (voir les logs)",
 
-	"gui.chunklimitcounter.hud.title": "Chunk Limits"
+	"gui.chunklimitcounter.hud.title": "Limites par Chunk",
+	"gui.chunklimitcounter.hud.chunk_coords": "Chunk : %s, %s",
+	"gui.chunklimitcounter.hud.player_coords": "Joueur : %s, %s, %s"
 }

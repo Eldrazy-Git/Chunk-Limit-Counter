@@ -29,10 +29,19 @@ public final class ConfigDefaults {
 
 	private static CategoryConfig containers() {
 		List<String> ids = new ArrayList<>(List.of(
+				"minecraft:ender_chest",
 				"minecraft:chest",
 				"minecraft:trapped_chest",
 				"minecraft:barrel",
-				"minecraft:shulker_box"
+				"minecraft:shulker_box",
+				"minecraft:copper_chest",
+				"minecraft:exposed_copper_chest",
+				"minecraft:weathered_copper_chest",
+				"minecraft:oxidized_copper_chest",
+				"minecraft:waxed_copper_chest",
+				"minecraft:waxed_exposed_copper_chest",
+				"minecraft:waxed_weathered_copper_chest",
+				"minecraft:waxed_oxidized_copper_chest"
 		));
 		for (String color : DYE_COLORS) {
 			ids.add("minecraft:" + color + "_shulker_box");
@@ -73,12 +82,11 @@ public final class ConfigDefaults {
 				"minecraft:iron_door",
 				"minecraft:iron_trapdoor"
 		));
-		return new CategoryConfig("Modules de redstone", 256, "#FFAA00", ids);
+		return new CategoryConfig("Redstone", 256, "#FFAA00", ids);
 	}
 
 	private static CategoryConfig interactive() {
 		List<String> ids = new ArrayList<>(List.of(
-				"minecraft:ender_chest",
 				"minecraft:furnace",
 				"minecraft:blast_furnace",
 				"minecraft:smoker",
@@ -101,7 +109,6 @@ public final class ConfigDefaults {
 				"minecraft:spawner",
 				"minecraft:trial_spawner",
 				"minecraft:vault",
-				"minecraft:comparator",
 				// Verifie dans le registre du jeu 26.2 (javap sur Blocks.class) : bloc "etagere",
 				// une variante par essence de bois, ajoute le 2026-09-29.
 				"minecraft:creaking_heart"

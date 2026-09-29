@@ -8,9 +8,9 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.level.ChunkPos;
 
 /**
- * Draws the HUD as a single grouped panel (title + chunk coords + one row per
- * category with an icon swatch, text and a fill bar), with just the corner
- * pixel shaved off each side - not a multi-pixel staircase.
+ * Draws the HUD as a single grouped panel (chunk coords in the header, then one
+ * row per category with an icon swatch, text and a fill bar), with just the
+ * corner pixel shaved off each side - not a multi-pixel staircase.
  */
 public final class HudPanelRenderer {
 	private static final int PADDING = 6;
@@ -23,10 +23,13 @@ public final class HudPanelRenderer {
 
 	private static final int COLOR_EDIT_OUTLINE = 0xFFFFD542;
 	private static final int COLOR_TRACK = 0x40FFFFFF;
-	private static final int COLOR_TITLE = 0xFFEDEDED;
 	private static final int COLOR_SUBTITLE = 0xFF9A9A9A;
 
 	private HudPanelRenderer() {
+	}
+
+	public static String chunkCoordsText(ChunkPos chunkPos) {
+		return Component.translatable("gui.chunklimitcounter.hud.chunk_coords", chunkPos.x(), chunkPos.z()).getString();
 	}
 
 	private static int headerHeight(Font font) {
@@ -57,9 +60,8 @@ public final class HudPanelRenderer {
 			ChunkPos chunkPos, int x, int y, int width, int height, int backgroundAlpha, boolean editHighlight) {
 		drawPanelBackground(graphics, x, y, width, height, backgroundAlpha, editHighlight);
 
-		graphics.text(font, Component.translatable("gui.chunklimitcounter.hud.title"), x + PADDING, y + 4, COLOR_TITLE);
 		if (chunkPos != null) {
-			String coords = chunkPos.x() + ", " + chunkPos.z();
+			String coords = chunkCoordsText(chunkPos);
 			int coordsWidth = font.width(coords);
 			graphics.text(font, coords, x + width - PADDING - coordsWidth, y + 4, COLOR_SUBTITLE);
 		}

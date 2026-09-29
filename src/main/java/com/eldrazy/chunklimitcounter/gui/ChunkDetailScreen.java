@@ -24,7 +24,8 @@ import com.eldrazy.chunklimitcounter.hud.HudLayout;
 
 /** Full breakdown screen: exact count per tracked block/entity id, not just the per-category total. */
 public class ChunkDetailScreen extends Screen {
-	private static final int TOP_MARGIN = 34;
+	private static final int TOP_MARGIN = 46;
+	private static final int COORDS_Y = 24;
 	private static final int LINE_HEIGHT = 11;
 	private static final int INDENT = 10;
 	private static final int BUTTON_HEIGHT = 20;
@@ -106,6 +107,22 @@ public class ChunkDetailScreen extends Screen {
 	private record Row(String text, int color, boolean bold, boolean header) {
 	}
 
+	/** "Chunk: x, z    Player: x, y, z" - shown under the title so both frames of reference are visible at once. */
+	private String coordsLineText() {
+		CountResult result = ChunkLimitCounterClient.getInstance().lastResult();
+		var player = Minecraft.getInstance().player;
+
+		List<String> parts = new ArrayList<>();
+		if (result != null) {
+			parts.add(Component.translatable("gui.chunklimitcounter.hud.chunk_coords", result.chunkPos.x(), result.chunkPos.z()).getString());
+		}
+		if (player != null) {
+			var pos = player.blockPosition();
+			parts.add(Component.translatable("gui.chunklimitcounter.hud.player_coords", pos.getX(), pos.getY(), pos.getZ()).getString());
+		}
+		return String.join("    ", parts);
+	}
+
 	private List<Row> buildRows() {
 		List<Row> rows = new ArrayList<>();
 		ChunkLimitCounterClient client = ChunkLimitCounterClient.getInstance();
@@ -174,6 +191,7 @@ public class ChunkDetailScreen extends Screen {
 		graphics.fill(0, 0, this.width, this.height, 0xC0101010);
 		super.extractRenderState(graphics, mouseX, mouseY, partialTick);
 		graphics.centeredText(font, this.title, this.width / 2, 12, 0xFFFFFFFF);
+		graphics.centeredText(font, coordsLineText(), this.width / 2, COORDS_Y, 0xFF9A9A9A);
 
 		List<Row> rows = buildRows();
 		int[] offsets = computeRowOffsets(rows);
@@ -188,9 +206,21 @@ public class ChunkDetailScreen extends Screen {
 		for (Row row : rows) {
 			columnWidth = Math.max(columnWidth, font.width(row.text()) + (row.header() ? 0 : INDENT));
 		}
-		int columnX = Math.max(8, (this.width - columnWidth) / 2);
+		int columnX = (this.width - columnWidth) / 2;
+
+		// If the widest line would overflow the screen, shrink everything horizontally around the
+		// screen's center so the column always fits instead of running off the edges.
+		int maxAvailableWidth = Math.max(1, this.width - 16);
+		float scale = columnWidth > maxAvailableWidth ? (float) maxAvailableWidth / columnWidth : 1f;
+		boolean scaled = scale < 1f;
 
 		graphics.enableScissor(0, viewportTop, this.width, viewportBottom);
+		if (scaled) {
+			graphics.pose().pushMatrix();
+			graphics.pose().translate(this.width / 2f, 0);
+			graphics.pose().scale(scale, 1f);
+			graphics.pose().translate(-(this.width / 2f), 0);
+		}
 		for (int i = 0; i < rows.size(); i++) {
 			Row row = rows.get(i);
 			int y = viewportTop - scrollOffset + offsets[i];
@@ -202,6 +232,9 @@ public class ChunkDetailScreen extends Screen {
 				int x = row.header() ? columnX : columnX + INDENT;
 				graphics.text(font, HudLayout.styledText(row.text(), row.bold()), x, y, row.color());
 			}
+		}
+		if (scaled) {
+			graphics.pose().popMatrix();
 		}
 		graphics.disableScissor();
 
