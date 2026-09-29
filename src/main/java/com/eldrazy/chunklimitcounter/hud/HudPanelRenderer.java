@@ -43,7 +43,10 @@ public final class HudPanelRenderer {
 	public static int width(Font font, List<HudLayout.Line> lines) {
 		int textWidth = 0;
 		for (HudLayout.Line line : lines) {
-			textWidth = Math.max(textWidth, font.width(line.text()));
+			// Measure the actual styled component, not the plain string: bold glyphs render
+			// wider than normal ones, so a category that goes bold on overflow needs that
+			// extra width accounted for here too, or its text pokes out of the panel.
+			textWidth = Math.max(textWidth, font.width(HudLayout.styledText(line.text(), line.bold())));
 		}
 		int content = PADDING * 2 + ICON_SIZE + ICON_GAP + textWidth;
 		return Math.max(MIN_WIDTH, content);
