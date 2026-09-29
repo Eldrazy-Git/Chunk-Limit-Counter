@@ -4,6 +4,10 @@ Mod client Fabric pour Minecraft **26.2** qui affiche en temps réel le nombre d
 
 100% client-only : aucune dépendance serveur, fonctionne aussi en solo.
 
+## Démonstration vidéo
+
+[![Regarder la vidéo de démonstration](https://img.youtube.com/vi/apvWItJaixg/maxresdefault.jpg)](https://www.youtube.com/watch?v=apvWItJaixg)
+
 ## Captures d'écran
 
 <!-- Ajoute ici tes captures d'écran, par exemple : -->
