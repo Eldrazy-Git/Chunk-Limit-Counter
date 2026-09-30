@@ -12,5 +12,9 @@ public class ModConfig {
 
 	public HudConfig hud = new HudConfig();
 
-	public List<CategoryConfig> categories = new ArrayList<>();
+	/**
+	 * Hard-coded by {@link ConfigDefaults}, never read from or written to config.json:
+	 * the category limits are not meant to be user-editable.
+	 */
+	public transient List<CategoryConfig> categories = new ArrayList<>();
 }

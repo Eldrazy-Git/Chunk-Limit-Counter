@@ -24,7 +24,7 @@ Mod client Fabric pour Minecraft **26.2** qui affiche en temps réel le nombre d
 - **Écran de détail complet** : liste le compte exact par bloc/entité (pas juste le total par catégorie), avec les noms traduits automatiquement selon la langue du jeu.
 - **Export JSON** : exporte le détail du chunk courant dans un fichier JSON depuis l'écran de détail.
 - **Capture d'écran** : bouton dédié dans l'écran de détail.
-- **Config entièrement personnalisable** : catégories, limites, couleurs et identifiants de blocs/entités définis dans un fichier JSON, pré-rempli avec les règles courantes (conteneurs, redstone, blocs interactifs, cadres).
+- **Catégories et limites fixes** : conteneurs, redstone, blocs interactifs, cadres — codées en dur dans le mod pour éviter que les joueurs ne les modifient.
 
 ## Touches par défaut
 
@@ -44,11 +44,10 @@ Le fichier de config est généré au premier lancement dans :
 config/chunklimitcounter/config.json
 ```
 
-Il contient :
+Il contient uniquement les réglages d'affichage, volontairement — les catégories et leurs limites ne sont **pas** éditables par ce fichier (elles sont fixées dans le code du mod) :
 - `safetyNetIntervalTicks` : intervalle du recalcul de sécurité (défaut : 20 ticks = 1 seconde)
 - `showAllBlocksInDetailScreen` : si `true`, l'écran de détail liste aussi les blocs/block-entities non suivis présents dans le chunk
 - `hud` : position, ancrage, visibilité et opacité du HUD
-- `categories` : liste des catégories, chacune avec un nom, une limite, une couleur et la liste des identifiants (`minecraft:chest`, etc.)
 
 ## Prérequis
 
