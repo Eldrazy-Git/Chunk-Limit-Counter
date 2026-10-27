@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "nom": "chunklimitcounter",
+  "description": "Mod client Fabric pour Minecraft **26.2** qui affiche en temps réel le nombre de blocs, block-entities et entités limités par chunk (par exemple par le plugin serveur [Insights](https://www.spigotmc.o",
+  "type": "java",
+  "categorie": "Minecraft",
+  "tags": [],
+  "favori": false,
+  "point_entree": "build.gradle",
+  "ouvrir_avec": "vscode",
+  "actions": [
+    {
+      "nom": "Compiler",
+      "description": "Lance « gradlew build » et ouvre le dossier contenant le .jar.",
+      "commande": "gradlew build",
+      "parametres": [],
+      "ouvrir_dossier_apres": "build/libs"
+    }
+  ],
+  "outils_lies": []
+}

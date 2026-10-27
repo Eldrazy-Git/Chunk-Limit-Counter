@@ -38,3 +38,10 @@ hs_err_*.log
 replay_*.log
 *.hprof
 *.jfr
+
+# Ajouté par Toolkit : fichiers sensibles à ne jamais versionner
+.env
+.env.*
+*.jks
+*.keystore
+local.properties
