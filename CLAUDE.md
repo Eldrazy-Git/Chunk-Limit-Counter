@@ -16,7 +16,7 @@
 
 ## Rôle du projet
 
-Mod client Fabric pour Minecraft **26.2** qui affiche en temps réel le nombre de blocs, block-entities et entités limités par chunk (par exemple par le plugin serveur [Insights](https://www.spigotmc.o
+Mod client Fabric pour Minecraft **26.2** qui affiche en temps réel le nombre de blocs, block-entities et entités limités par chunk (par exemple par le plugin serveur [Insights](https://www.spigotmc.org/resources/insights.55561/)), sans avoir à poser/casser pour vérifier.
 
 ## Technologies
 
