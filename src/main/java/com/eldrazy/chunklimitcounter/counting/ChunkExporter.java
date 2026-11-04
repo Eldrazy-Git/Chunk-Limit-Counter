@@ -28,10 +28,30 @@ public final class ChunkExporter {
 	}
 
 	public static Path export(CountResult result, ModConfig config) throws IOException {
+		Path dir = FabricLoader.getInstance().getConfigDir().resolve("chunklimitcounter").resolve("exports");
+		return export(result, config, dir, LocalDateTime.now());
+	}
+
+	public static Path export(CountResult result, ModConfig config, Path dir, LocalDateTime now) throws IOException {
+		Map<String, Object> root = buildJson(result, config, now);
+
+		Files.createDirectories(dir);
+		String fileName = "chunk_" + result.chunkPos.x() + "_" + result.chunkPos.z() + "_" + now.format(FILE_STAMP) + ".json";
+		Path file = dir.resolve(fileName);
+
+		try (Writer writer = Files.newBufferedWriter(file)) {
+			GSON.toJson(root, writer);
+		}
+
+		return file;
+	}
+
+	/** The export's content, kept separate from file writing so it can be checked on its own. */
+	public static Map<String, Object> buildJson(CountResult result, ModConfig config, LocalDateTime now) {
 		Map<String, Object> root = new LinkedHashMap<>();
 		root.put("chunkX", result.chunkPos.x());
 		root.put("chunkZ", result.chunkPos.z());
-		root.put("exportedAt", LocalDateTime.now().toString());
+		root.put("exportedAt", now.toString());
 
 		List<Map<String, Object>> categories = new ArrayList<>();
 		for (CategoryConfig category : config.categories) {
@@ -60,15 +80,6 @@ public final class ChunkExporter {
 			root.put("others", result.otherCounts);
 		}
 
-		Path dir = FabricLoader.getInstance().getConfigDir().resolve("chunklimitcounter").resolve("exports");
-		Files.createDirectories(dir);
-		String fileName = "chunk_" + result.chunkPos.x() + "_" + result.chunkPos.z() + "_" + LocalDateTime.now().format(FILE_STAMP) + ".json";
-		Path file = dir.resolve(fileName);
-
-		try (Writer writer = Files.newBufferedWriter(file)) {
-			GSON.toJson(root, writer);
-		}
-
-		return file;
+		return root;
 	}
 }

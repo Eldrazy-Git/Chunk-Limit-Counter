@@ -1,0 +1,9 @@
+{
+	"schemaVersion": 1,
+	"id": "chunklimitcounter-gametest",
+	"version": "1.0.0",
+	"name": "Chunk Limit Counter - tests en jeu",
+	"environment": "client",
+	"entrypoints": { "fabric-client-gametest": ["com.eldrazy.chunklimitcounter.gametest.ChunkCountGameTest"] },
+	"depends": { "chunklimitcounter": "*" }
+}

@@ -25,3 +25,12 @@ Projet Java (Gradle).
 ## Lancer ou compiler
 
 Compiler avec le wrapper Gradle du projet : `gradlew build` ; le .jar est produit dans `build/libs/`.
+
+## Tests
+
+- `gradlew build` lance aussi les tests unitaires (`src/test`) : couleurs et position du HUD, liste des limites
+  (chaque identifiant doit exister dans le jeu : à relancer après un changement de version de Minecraft),
+  lecture de la config, contenu de l'export JSON.
+- `gradlew runClientGameTest` : test dans le vrai jeu (`src/gametest`), ouvre une fenêtre Minecraft (prévenir
+  l'utilisateur). Il pose des blocs dans le chunk du joueur et vérifie les comptes. Regarder les captures dans
+  `build/run/clientGameTest/screenshots/`.

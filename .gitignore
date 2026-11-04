@@ -45,3 +45,6 @@ replay_*.log
 *.jks
 *.keystore
 local.properties
+
+# journaux du jeu crees par les tests unitaires
+logs/

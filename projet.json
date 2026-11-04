@@ -11,10 +11,17 @@
   "actions": [
     {
       "nom": "Compiler",
-      "description": "Lance « gradlew build » et ouvre le dossier contenant le .jar.",
+      "description": "Lance « gradlew build » (avec les tests unitaires) et ouvre le dossier contenant le .jar.",
       "commande": "gradlew build",
       "parametres": [],
       "ouvrir_dossier_apres": "build/libs"
+    },
+    {
+      "nom": "Tester en jeu",
+      "description": "Ouvre une fenêtre Minecraft, pose des coffres, répéteurs et un cadre, vérifie que le mod les compte et prend des captures.",
+      "commande": "gradlew runClientGameTest",
+      "parametres": [],
+      "ouvrir_dossier_apres": "build/run/clientGameTest/screenshots"
     }
   ],
   "outils_lies": [],
