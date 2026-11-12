@@ -17,11 +17,17 @@
       "ouvrir_dossier_apres": "build/libs"
     },
     {
-      "nom": "Tester en jeu",
+      "nom": "Tests automatisés",
       "description": "Ouvre une fenêtre Minecraft, pose des coffres, répéteurs et un cadre, vérifie que le mod les compte et prend des captures.",
       "commande": "gradlew runClientGameTest",
       "parametres": [],
       "ouvrir_dossier_apres": "build/run/clientGameTest/screenshots"
+    },
+    {
+      "nom": "Tester en jeu",
+      "description": "Lance Minecraft avec le mod pour l'essayer.",
+      "commande": "gradlew runClient",
+      "parametres": []
     }
   ],
   "outils_lies": [],
