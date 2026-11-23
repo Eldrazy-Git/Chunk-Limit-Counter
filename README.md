@@ -1,6 +1,6 @@
 # Chunk Limit Counter
 
-Mod client Fabric pour Minecraft **26.2** qui affiche en temps réel le nombre de blocs, block-entities et entités limités par chunk (par exemple par le plugin serveur [Insights](https://www.spigotmc.org/resources/insights.55561/)), sans avoir à poser/casser pour vérifier.
+Mod client Fabric pour Minecraft **26.3** qui affiche en temps réel le nombre de blocs, block-entities et entités limités par chunk (par exemple par le plugin serveur [Insights](https://www.spigotmc.org/resources/insights.55561/)), sans avoir à poser/casser pour vérifier.
 
 100% client-only : aucune dépendance serveur, fonctionne aussi en solo.
 
@@ -51,9 +51,9 @@ Il contient uniquement les réglages d'affichage, volontairement — les catégo
 
 ## Prérequis
 
-- Minecraft 26.2
+- Minecraft 26.3
 - Fabric Loader ≥ 0.19.5
-- Fabric API (build correspondant à 26.2)
+- Fabric API (build correspondant à 26.3)
 - Java 25
 
 ## Compiler depuis les sources

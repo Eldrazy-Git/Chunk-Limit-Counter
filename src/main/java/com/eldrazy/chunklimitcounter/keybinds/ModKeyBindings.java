@@ -1,7 +1,5 @@
 package com.eldrazy.chunklimitcounter.keybinds;
 
-import org.lwjgl.glfw.GLFW;
-
 import com.mojang.blaze3d.platform.InputConstants;
 
 import net.minecraft.client.KeyMapping;
@@ -28,13 +26,13 @@ public final class ModKeyBindings {
 
 	public static void register() {
 		toggleHud = KeyMappingHelper.registerKeyMapping(new KeyMapping(
-				"key.chunklimitcounter.toggle_hud", InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_K, CATEGORY));
+				"key.chunklimitcounter.toggle_hud", InputConstants.Type.KEYBOARD, InputConstants.KEY_K, CATEGORY));
 
 		openDetailScreen = KeyMappingHelper.registerKeyMapping(new KeyMapping(
-				"key.chunklimitcounter.open_detail", InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_J, CATEGORY));
+				"key.chunklimitcounter.open_detail", InputConstants.Type.KEYBOARD, InputConstants.KEY_J, CATEGORY));
 
 		moveHud = KeyMappingHelper.registerKeyMapping(new KeyMapping(
-				"key.chunklimitcounter.move_hud", InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_L, CATEGORY));
+				"key.chunklimitcounter.move_hud", InputConstants.Type.KEYBOARD, InputConstants.KEY_L, CATEGORY));
 
 		ClientTickEvents.END_CLIENT_TICK.register(ModKeyBindings::handleTick);
 	}
