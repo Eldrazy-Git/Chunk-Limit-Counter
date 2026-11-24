@@ -60,8 +60,8 @@ Mod client Fabric pour Minecraft **26.3** qui affiche en temps réel le nombre d
 
 ### Liste des limites (plugin Insights)
 
-- Les catégories reprennent les limites par chunk appliquées côté serveur par le plugin
-  [Insights](https://www.spigotmc.org/resources/insights.55561/). Le mod ne lit rien du serveur : la liste est
+- Les catégories reprennent les limites par chunk du serveur **La Citadelle** (lacitadelle-mc.fr), appliquées par le plugin
+  [Insights](https://www.spigotmc.org/resources/insights.55561/). Si le serveur change ses limites, le mod doit suivre. Le mod ne lit rien du serveur : la liste est
   **écrite en dur** dans `config/ConfigDefaults.java` : Conteneurs 128, Redstone 256, Blocs interactifs 512, Cadres 64
   (nom, limite, couleur, identifiants ; les variantes de bois et de couleur sont générées par boucles `WOOD_TYPES`/`DYE_COLORS`).
 - **Volontairement non modifiable par le joueur** : `ModConfig.categories` est `transient`, jamais lu ni écrit dans
